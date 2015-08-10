@@ -1,0 +1,11 @@
+*.class
+*.war
+.idea
+target
+*.iml
+*.log
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
