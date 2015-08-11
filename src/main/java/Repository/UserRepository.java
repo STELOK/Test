@@ -6,8 +6,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.*;
 
 public class UserRepository {
+
     private JdbcTemplate jdbc = new JdbcTemplate();
     private SimpleJdbcInsert insertUser;
 
