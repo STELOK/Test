@@ -1,6 +1,6 @@
 package com.Repository;
 
-import org.json.simple.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,7 +18,7 @@ public class UserRepository implements Serializable {
     private JdbcTemplate jdbc;
     private SimpleJdbcInsert insertUser;
     private User user;
-    private JSONObject jsonObject;
+
 
     @Autowired
     public void setDataSource(DataSource dataSource) {

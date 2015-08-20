@@ -9,7 +9,7 @@ public class User implements Builder {
     private String name;
     private int id;
     private User user;
-    private JSONObject jsonObject;
+
 
     public String getName() {
         return name;
