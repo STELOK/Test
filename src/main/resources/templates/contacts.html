@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    // init variables
+    var $table = $('#contactsTable');
+    var $button = $('#button');
+    $table.bootstrapTable(); //init table
+    $button.on('click', removeContacats); //add event
+    </script>
+    <div id="toolbar">
+            <button id="button" class="btn btn-default">remove</button>
+            </div>
+
+            <table id="contactsTable" data-toggle="table" data-toolbar="#toolbar" data-url="/contacts.json" data-click-to-select="true">
+            <thead>
+            <tr>
+            <th data-field="state" data-checkbox="true"></th>
+            <th data-field="firstName">First name</th>
+    <th data-field="lastName">Last name</th>
+    <th data-field="birthDay" data-formatter="dateFormatter">Birthday</th>
+            </tr>
+            </thead>
+            </table>
+</body>
+</html>

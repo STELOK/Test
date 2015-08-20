@@ -1,19 +1,24 @@
-package Repository;
+package com.Repository;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.*;
+import java.io.Serializable;
+import java.util.List;
 
-public class UserRepository {
+@Repository
+public class UserRepository implements Serializable {
 
-    private JdbcTemplate jdbc = new JdbcTemplate();
+
+    private JdbcTemplate jdbc;
     private SimpleJdbcInsert insertUser;
+    private User user;
+    private JSONObject jsonObject;
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
@@ -22,6 +27,10 @@ public class UserRepository {
                 .usingGeneratedKeyColumns("user_id");
 
         this.jdbc = new JdbcTemplate(dataSource);
+    }
+
+    public void addUser() {
+        jdbc.update("INSERT INTO users(name, login, password_hash, email) VALUES(?, ?, ?, ?)", userMapper, new Object[]{user.getName(), user.getLogin(), user.getPassword(), user.getEmail()});
     }
 
     public User getUser(String login) {
@@ -36,14 +45,22 @@ public class UserRepository {
         return jdbc.queryForObject("UPDATE users" + " SET password_hash = " + password + ", email = " + email + ", name = " + name + "WHERE login = ?", userMapper, login);
     }
 
+   @Override
+    public String toString(){
+        return "Id = " + user.getId() + " Login = " + user.getLogin() + " Name = " + user.getName() + "  Email = " + user.getEmail();
+    }
     private static final RowMapper<User> userMapper = (rs, rowNum) -> {
-        User user = null;
+        User user;
         User.UserBuilder userBuilder = new User.UserBuilder(rs.getString("login"), rs.getString("password_hash"))
                 .id(rs.getInt("user_id"))
                 .email(rs.getString("email"))
                 .name(rs.getString("name"));
-        user = user.buildUser();
+        user = userBuilder.build();
 
         return user;
     };
+
+    public List<User> getUsers() {
+        return jdbc.query("select * from users", userMapper);
+    }
 }

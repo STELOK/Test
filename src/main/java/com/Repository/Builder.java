@@ -1,4 +1,4 @@
-package Repository;
+package com.Repository;
 
 /**
  * Created by rostyslav on 09.08.15.

@@ -1,0 +1,3 @@
+var getUser = function(user){
+
+}

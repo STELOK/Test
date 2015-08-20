@@ -1,4 +1,6 @@
-package Repository;
+package com.Repository;
+
+import org.json.simple.JSONObject;
 
 public class User implements Builder {
     private String login;
@@ -6,6 +8,8 @@ public class User implements Builder {
     private String email;
     private String name;
     private int id;
+    private User user;
+    private JSONObject jsonObject;
 
     public String getName() {
         return name;
@@ -60,7 +64,12 @@ public class User implements Builder {
         return new UserBuilder(login, password).name(name).email(email).build();
     }
 
-   public static class UserBuilder {
+    @Override
+    public String toString() {
+        return user.getLogin();
+    }
+
+    public static class UserBuilder {
         protected User user;
         private String login;
         private String password;
