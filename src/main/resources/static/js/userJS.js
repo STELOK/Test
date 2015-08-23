@@ -1,5 +1,5 @@
  var pageContent;
-$(document).ready(function(){
+ $(document).ready(function(){
 
     pageContent = $('.container');
 
