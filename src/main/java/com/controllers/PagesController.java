@@ -11,11 +11,17 @@ public class PagesController {
 
     @RequestMapping("/")
     public String getIndex() {
-        return "forward:/resources/templates/index.html";
+        return "index";
     }
 
-    @RequestMapping("/contacts")
+    @RequestMapping("/users")
     public String getContactsPage() {
-        return "forward:/resources/templates/contacts.html";
+        return "users";
     }
+
+    @RequestMapping("/authorization")
+    public String getAuthorizationPage() {
+        return "Authorization";
+    }
+
 }

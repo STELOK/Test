@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public class UserRepository implements Serializable {
 
-
     private JdbcTemplate jdbc;
     private SimpleJdbcInsert insertUser;
     private User user;

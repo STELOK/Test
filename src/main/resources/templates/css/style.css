@@ -73,3 +73,8 @@
     display: block;
     margin-top: 10px;
 }
+
+ #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}

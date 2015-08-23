@@ -1,0 +1,20 @@
+<script type="text/javascript">
+    // init variables
+    var $table = $('#usersTable');
+    var $button = $('#button');
+    $table.bootstrapTable(); //init table
+    $button.on('click', removeContacats); //add event
+    </script>
+    <div id="toolbar">
+            <button id="button" class="btn btn-default">remove</button>
+            </div>
+
+    <table id="usersTable" data-toggle="table" data-toolbar="#toolbar" data-url="/users.json" data-click-to-select="true">
+            <thead>
+            <tr>
+            <th data-field="login">Login</th>
+            <th data-field="name">Name</th>
+            <th data-field="email">Email</th>
+            </tr>
+            </thead>
+    </table>
