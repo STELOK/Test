@@ -18,7 +18,28 @@
             loadHTML(responce);
         });
     }
+        function showAddContactsPage() {
+            $.get('/add-user', function (data) {
+                loadHTML(data);
+            });
+        }
 
+        function submitContact() {
+
+                console.log('form submited');
+                $.ajax({
+                    url: '/add',
+                    type: 'post',
+                    data: $("#addNewUser").serializeArray(),
+                    success: function () {
+                        showUsersPages();
+                    },
+                    error: function (e) {
+                        console.error('Whoa, error', e);
+                    }
+                });
+
+        }
 
     function loadHTML(html) {
         pageContent.html(html);
@@ -48,7 +69,7 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" onclick="showUsersPages();">Show Users</a></li>
-                        <li><a href="#">Add User</a></li>
+                        <li><a href="#" onclick="showAddContactsPage();">Add User</a></li>
                         <li><a href="#">Delete USer</a></li>
                     </ul>
                 </li>

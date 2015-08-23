@@ -19,9 +19,10 @@ public class PagesController {
         return "users";
     }
 
-    @RequestMapping("/authorization")
+
+    @RequestMapping("/add-user")
     public String getAuthorizationPage() {
-        return "Authorization";
+        return "add-user";
     }
 
 }

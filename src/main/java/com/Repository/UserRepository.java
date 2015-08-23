@@ -28,7 +28,7 @@ public class UserRepository implements Serializable {
         this.jdbc = new JdbcTemplate(dataSource);
     }
 
-    public void addUser() {
+    public void addUser(User user) {
         jdbc.update("INSERT INTO users(name, login, password_hash, email) VALUES(?, ?, ?, ?)", userMapper, new Object[]{user.getName(), user.getLogin(), user.getPassword(), user.getEmail()});
     }
 
