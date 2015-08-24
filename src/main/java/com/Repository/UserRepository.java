@@ -29,7 +29,7 @@ public class UserRepository implements Serializable {
     }
 
     public void addUser(User user) {
-        jdbc.update("INSERT INTO users(name, login, password_hash, email) VALUES(?, ?, ?, ?)", userMapper, new Object[]{user.getName(), user.getLogin(), user.getPassword(), user.getEmail()});
+        jdbc.update("INSERT INTO users(name, login, password_hash, email) VALUES(?, ?, ?, ?)", new Object[]{user.getName(), user.getLogin(), user.getPassword(), user.getEmail()});
     }
 
     public User getUser(String login) {

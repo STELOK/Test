@@ -2,7 +2,9 @@ package com.Repository;
 
 import org.json.simple.JSONObject;
 
-public class User implements Builder {
+import java.io.Serializable;
+
+public class User implements Builder, Serializable {
     private String login;
     private String password;
     private String email;
@@ -69,7 +71,7 @@ public class User implements Builder {
         return user.getLogin();
     }
 
-    public static class UserBuilder {
+    public static class UserBuilder implements Serializable{
         protected User user;
         private String login;
         private String password;

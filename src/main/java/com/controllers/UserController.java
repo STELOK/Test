@@ -21,15 +21,17 @@ public class UserController {
         return userRepository.getUsers();
     }
 
-    @ResponseStatus(HttpStatus.OK)
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public @ResponseBody String addNewUser (@RequestParam("name") String name,
-                                                @RequestParam("login") String login,
-                                                @RequestParam("password_hash") String password,
-                                                @RequestParam("email") String email) {
+    public @ResponseBody String addNewUser (@RequestParam("Name") String name,
+                                                @RequestParam("Login") String login,
+                                                @RequestParam("Password") String password,
+                                                @RequestParam("Email") String email) {
 
         User user = null;
-        user = new User.UserBuilder(login, password).name(name).email(email).build();
+
+        User.UserBuilder userBuilder = new User.UserBuilder(login, password).name(name).email(email);
+        user = userBuilder.build();
         userRepository.addUser(user);
         return "";
     }

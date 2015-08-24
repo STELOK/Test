@@ -1,15 +1,17 @@
 
 <script>
     $('#usersTable').bootstrapTable();
+
+
 </script>
         <div class="addUsers">
             <h1 class="text-center login-title">Sign in</h1>
             <div class="account-wall">
                 <form class="addNewUser">
-                    <input type="text" class="form-control" placeholder="Email" required="required" autofocus="autofocus"/>
-                    <input type="text" class="form-control" placeholder="Password" required="required"/>
-                    <input type="text" class="form-control" placeholder="Login" required="required"/>
-                    <input type="text" class="form-control" placeholder="Email" required="required"/>
+                    <input type="text" class="form-control" name="Name" placeholder="Name" required="required" autofocus="autofocus"/>
+                    <input type="text" class="form-control" name="Password" placeholder="Password" required="required"/>
+                    <input type="text" class="form-control" name="Login" placeholder="Login" required="required"/>
+                    <input type="text" class="form-control" name="Email" placeholder="Email" required="required"/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="submitContact();">Sign in</button>
                     <label class="checkbox pull-left">
                         <input type="checkbox" value="remember-me">

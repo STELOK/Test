@@ -25,12 +25,10 @@
         }
 
         function submitContact() {
-
-                console.log('form submited');
                 $.ajax({
                     url: '/add',
                     type: 'post',
-                    data: $("#addNewUser").serializeArray(),
+                    data: $(".addNewUser").serializeArray(),
                     success: function () {
                         showUsersPages();
                     },
